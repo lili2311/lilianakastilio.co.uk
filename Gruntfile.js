@@ -36,8 +36,8 @@ module.exports = function(grunt) {
             dest: 'css/',
           },
           {
-            src: '*.svg',
-            dest: '/',
+            src: 'images/*.svg',
+            dest: 'images/',
           },
           {
             src: 'stickyheader/*.html',
