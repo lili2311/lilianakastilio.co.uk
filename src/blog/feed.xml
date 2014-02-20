@@ -5,7 +5,7 @@
     <link rel="alternate" href="http://www.lilianakastilio.co.uk/blog/" />
     <link rel="self" href="http://www.lilianakastilio.co.uk/blog/feed.xml" type="application/atom+xml" />
     <id>http://www.lilianakastilio.co.uk/blog/</id>
-    <updated>2014-01-16T22:04:46Z</updated>
+    <updated>2014-02-18T18:55:13Z</updated>
     
     <author>
         <name>Liliana Kastilio</name>
@@ -15,13 +15,173 @@
     
     
         <entry>
+            <title>Meow</title>
+            <link rel="alternate" href="http://www.lilianakastilio.co.uk/blog/2014/02/18/Meow/" type="text/html" />
+            <id>http://www.lilianakastilio.co.uk/blog/2014/02/18/Meow/</id>
+            <updated>2014-02-18T18:55:00Z</updated>
+            
+            <summary type="html">For my first web page I wanted to create something simple, but also challenging for myself. I created some web pages whilst at university and have attempted it a few times since but lack of understanding was holding me back, and I found it very discouraging not getting far. So after a couple of courses on &lt;a href=&#34;http://www.codecademy.com/&#34;&gt;Codeacademy&lt;/a&gt; and some patient tutoring from my boyfriend (who is a web developer), I finally feel like I am getting somewhere.</summary>
+            <content type="html">&lt;p&gt;For my first web page I wanted to create something simple, but also challenging for myself. I created some web pages whilst at university and have attempted it a few times since but lack of understanding was holding me back, and I found it very discouraging not getting far. So after a couple of courses on &lt;a href=&#34;http://www.codecademy.com/&#34;&gt;Codeacademy&lt;/a&gt; and some patient tutoring from my boyfriend (who is a web developer), I finally feel like I am getting somewhere.&lt;/p&gt;
+
+&lt;p&gt;I have never in the past managed to use forms or manipulate data using JavaScript on a web page so these were elements I wanted to include in my first project. I should mention that I am not new to coding or scripting, but am a complete noob to web development. In the end I wanted a page that was reminiscent of &lt;em&gt;Lorem Ipsum&lt;/em&gt; text generators, but much simpler: here is the &lt;a href=&#34;http://www.lilianakastilio.co.uk/meow/meow.html&#34;&gt;result&lt;/a&gt;. The user can enter some text and in return get a &amp;ldquo;Meow&amp;rdquo; filled paragraph.&lt;/p&gt;
+
+&lt;p&gt;So how did I do it?&lt;br&gt;
+After some franctic googling and trying desperately to remember what I have learned at university about HTML, I have found that we need two main things to make a webpage: &lt;code&gt;HTML&lt;/code&gt; and &lt;code&gt;CSS&lt;/code&gt;. But in this example we will also need Javascript to be able to process user input.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;h4&gt;HTML - HyperText Markup Language.&lt;/h4&gt;
+
+&lt;p&gt;First things first is to create a file &lt;code&gt;index.html&lt;/code&gt; and insert the basic HTML5 structure of a web page:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+    &amp;lt;head&amp;gt;
+        &amp;lt;title&amp;gt;Page title goes here&amp;lt;&amp;#47;title&amp;gt;
+    &amp;lt;&amp;#47;head&amp;gt;
+    &amp;lt;body&amp;gt;
+    &amp;lt;&amp;#47;body&amp;gt;
+&amp;lt;&amp;#47;html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So lets explain each tag:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt; - here we are declaring that the document contains HTML5 markup.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; - here you will store links to or definitions of scripts and stylesheets. Any description of the page content goes here, such as page title. Search engines will use this to add the page to their search index. This must be the first element in the &lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt; element.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;title&amp;gt;&lt;/code&gt; - this defines the page title, which will be shown in the browser tab or title bar.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; - this holds the content of the HTML page. This must be the second element in the &lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt; element.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;At this stage opening &lt;code&gt;index.html&lt;/code&gt; in the browser will produce an empty page with the tab title &amp;ldquo;Page title goes here&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Earlier I mentioned that I wanted the page to have an input field and a button to process the input on click. Looking at the &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list&#34;&gt;HTML 5 Element List&lt;/a&gt;, we can see that within the &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt; we have &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt; elements available to us. We will also need a &lt;code&gt;&amp;lt;label&amp;gt;&lt;/code&gt; to caption the &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt;. Here is them all added:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+    &amp;lt;head&amp;gt;
+        &amp;lt;title&amp;gt;Meow&amp;lt;&amp;#47;title&amp;gt;
+    &amp;lt;&amp;#47;head&amp;gt;
+    &amp;lt;body&amp;gt;
+    &amp;lt;div class=&amp;quot;form-container&amp;quot;&amp;gt;
+        &amp;lt;form id=&amp;quot;meow-form&amp;quot;&amp;gt;
+            &amp;lt;label&amp;gt;Type Anything:&amp;lt;&amp;#47;label&amp;gt;
+            &amp;lt;input id=&amp;quot;meow-input&amp;quot; name=&amp;quot;field&amp;quot; maxlength=&amp;quot;255&amp;quot; type=&amp;quot;text&amp;quot; autocomplete=&amp;quot;off&amp;quot;&amp;gt;
+            &amp;lt;button type=&amp;quot;submit&amp;quot;&amp;gt;Go!&amp;lt;&amp;#47;button&amp;gt;
+            &amp;lt;&amp;#47;form&amp;gt;
+        &amp;lt;&amp;#47;div&amp;gt;
+    &amp;lt;&amp;#47;body&amp;gt;
+&amp;lt;&amp;#47;html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The form is within a container &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;, it can also be called a content &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;. Placing the form in the container will allow for more sophisticated CSS styling and to place the elements anywhere we want on the page with ease. There are a couple of thigs to explain here:&lt;br&gt;
+1. &lt;code&gt;class&lt;/code&gt; and &lt;code&gt;id&lt;/code&gt; attributes. The &lt;code&gt;class&lt;/code&gt; attribute in the &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element assigns the element to a named class (in this case &lt;code&gt;form-container&lt;/code&gt;). Multiple elements in the document can have the same class value, for any unique elements &lt;code&gt;id&lt;/code&gt; is more appropriate. (Note: &lt;code&gt;id&lt;/code&gt; must be unique in the document). However in this case, &lt;code&gt;id&lt;/code&gt; could have also been used. I found a simple explanation of where to use which &lt;a href=&#34;http://www.impressivewebs.com/difference-class-id-css/&#34;&gt;here&lt;/a&gt;. Both &lt;code&gt;id&lt;/code&gt; and &lt;code&gt;class&lt;/code&gt; are used as selectors in the stylesheet to style the elements (more on this later).&lt;br&gt;
+2. &lt;code&gt;&amp;lt;label&amp;gt;&lt;/code&gt; - simply has text to be used as a caption.&lt;br&gt;
+3. &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; - we have given the input an &lt;code&gt;id&lt;/code&gt; so that it can be styled later on.&lt;br&gt;
+ 4. &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt; - setting the &lt;code&gt;type=&amp;quot;submit&amp;quot;&lt;/code&gt; will submit form data when the button is pressed. This is the default option if nothing is specified.&lt;/p&gt;
+
+&lt;p&gt;Loading the &lt;code&gt;index.html&lt;/code&gt; in the browser now gives us this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/ExVY6i4.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;h4&gt;CSS - Cascading Style Sheets.&lt;/h4&gt;
+
+&lt;p&gt;CSS describes how a structured element (HTML or XML) must be rendered on screen.CSS can be:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;  &lt;em&gt;inline&lt;/em&gt; - using the style attribute in HTML elements.&lt;/li&gt;
+&lt;li&gt;  &lt;em&gt;internal&lt;/em&gt; - using the &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; element in the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; section.&lt;/li&gt;
+&lt;li&gt; &lt;em&gt;external&lt;/em&gt; - using an external &lt;code&gt;.css&lt;/code&gt; file.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I am putting all CSS in an external &lt;code&gt;style.css&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;First we can set the body of the page to have a background image:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    body {
+        background: url(images&amp;#47;lined_paper.png);
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The whole expression is a &lt;strong&gt;&lt;em&gt;rule&lt;/em&gt;&lt;/strong&gt;, and &lt;strong&gt;&lt;em&gt;body&lt;/em&gt;&lt;/strong&gt; is a selector, which selects which element the rules apply to.&lt;/p&gt;
+
+&lt;p&gt;Now we want to give the whole form a width and set the font. Earlier we have made the div that contained the form be of class &amp;ldquo;form-container&amp;rdquo;, in order to select elements of that class we have to put a &lt;code&gt;.&lt;/code&gt; in front of the class name:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    .form-container {
+        margin: 90px auto;
+        width: 400px;
+        font-family: &amp;quot;Roboto Condensed&amp;quot;;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can give the input a desired width:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    input {
+        width: 200px;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And style the button:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    button {
+        background-color:#ED518A;
+        height:37px;
+        border: 3px solid #fff;
+        color: #fff;
+        display: inline-block;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;By saying display the button as an &lt;code&gt;inline-block&lt;/code&gt; we are actually telling it to stay on the same line.&lt;/p&gt;
+
+&lt;p&gt;Now we need to add a line in the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt;  to load the external &lt;code&gt;.css&lt;/code&gt; file and to load the custom Google font (the Google font link can be generated on &lt;a href=&#34;http://www.google.com/fonts&#34;&gt;Google Fonts&lt;/a&gt; website):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Meow&amp;lt;&amp;#47;title&amp;gt;
+    &amp;lt;link href=&amp;quot;normalize.css&amp;quot; rel=&amp;quot;stylesheet&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;style.css&amp;quot;&amp;gt;
+    &amp;lt;link href=&amp;#39;http:&amp;#47;&amp;#47;fonts.googleapis.com&amp;#47;css?family=Roboto+Condensed:700,400&amp;#39; rel=&amp;#39;stylesheet&amp;#39; type=&amp;#39;text&amp;#47;css&amp;#39;&amp;gt;
+&amp;lt;&amp;#47;head&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After applying all the changes, our web page should now look like this:&lt;br&gt;
+&lt;img src=&#34;http://i.imgur.com/vOhv3Li.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;Trying this in a few different browsers may yield a different result, but we can help the page to render consistently across different browsers by using something called &lt;a href=&#34;http://necolas.github.io/normalize.css/&#34;&gt;Normalize.css&lt;/a&gt;. You can see that I have already included normalize.css in the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt;. There is also a project called &lt;a href=&#34;http://www.cssreset.com/&#34;&gt;reset.css&lt;/a&gt;, there are many different versions you can try, but &lt;a href=&#34;http://stackoverflow.com/a/8357635&#34;&gt;here&lt;/a&gt; an overview of the main differences between &lt;code&gt;reset.css&lt;/code&gt; and &lt;code&gt;normalize.css&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;h4&gt;JavaScript&lt;/h4&gt;&lt;br&gt;
+Javascript is an (quasi) object-oriented language, widely used as a scripting language for web pages. To add javascript to our page we will create an external script called meow.js which we can include in the index.html:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&amp;quot;text&amp;#47;javascript&amp;quot; src=&amp;quot;meow.js&amp;quot;&amp;gt;&amp;lt;&amp;#47;script
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is the full meow.js:   &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function send(event) {
+    var input_text = document.getElementById(&amp;quot;meow-input&amp;quot;).value;
+    document.getElementById(&amp;quot;meow-output&amp;quot;).value = meow(50,input_text);
+    event.preventDefault();
+};
+
+function meow(times, input_text){
+    var output = new Array(times);
+    for (i=0; i&amp;lt; times; i++){
+        output[i] = &amp;quot; meow &amp;quot; + input_text;
+    }
+    return output;
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To explain briefly what is being done here: the function &lt;code&gt;send(event)&lt;/code&gt; is called once the button is clicked. We are extracting the user input from the button with id &lt;code&gt;meow-input&lt;/code&gt; and using it to calculate the output. The function &lt;code&gt;meow(times, input_text)&lt;/code&gt; repeats the user input &lt;code&gt;x&lt;/code&gt; number of times with the word &amp;ldquo;meow&amp;rdquo; in between.&lt;br&gt;&lt;br&gt;
+We also need to tell the button to submit the information once it is clicked and use the function send (which is above), this I have done with some internal javascript:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&amp;quot;text&amp;#47;javascript&amp;quot;&amp;gt;
+    var form = document.getElementById(&amp;quot;meow-form&amp;quot;);
+    form.addEventListener(&amp;#39;submit&amp;#39;, send, true);
+&amp;lt;&amp;#47;script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And that&amp;#39;s it!&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Some useful resources:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/&#34;&gt;MDN - Mozilla Developer Network&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://caniuse.com/&#34;&gt;Can I Use&amp;hellip;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://color.hailpixel.com/&#34;&gt;color.hailpixel.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/&#34;&gt;StackOverflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        </entry>
+    
+        <entry>
             <title>Hello World!</title>
             <link rel="alternate" href="http://www.lilianakastilio.co.uk/blog/2013/01/16/Hello-World/" type="text/html" />
             <id>http://www.lilianakastilio.co.uk/blog/2013/01/16/Hello-World/</id>
-            <updated>2013-01-16T22:04:00Z</updated>
+            <updated>2013-01-16T13:14:00Z</updated>
             
-            <summary type="html">Hello World!</summary>
-            <content type="html">&lt;p&gt;Hello World!&lt;/p&gt;
+            <summary type="html">This blog is intended as a place to document my progress as I attempt to learn web development. From HTML to python and everything in between, the goal is to try everything and try to do it using different tools and technologies to gain a better understanding of web development. I will try to explain everything I have learned and used as I go along in as much detail as possible in the hope that it will help to cement the knowledge in my brain. &lt;br&gt;
+The list of the work so far can be found &lt;a href=&#34;http://www.lilianakastilio.co.uk&#34;&gt;here&lt;/a&gt;.</summary>
+            <content type="html">&lt;p&gt;This blog is intended as a place to document my progress as I attempt to learn web development. From HTML to python and everything in between, the goal is to try everything and try to do it using different tools and technologies to gain a better understanding of web development. I will try to explain everything I have learned and used as I go along in as much detail as possible in the hope that it will help to cement the knowledge in my brain. &lt;br&gt;
+The list of the work so far can be found &lt;a href=&#34;http://www.lilianakastilio.co.uk&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </content>
         </entry>
     

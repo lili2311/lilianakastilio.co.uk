@@ -7,7 +7,6 @@
 
 body {
   background-color: #fff;
-  text-transform: lowercase;
   /*background-image: url("../images/bg.png");
   background-position: left top;
   background-repeat: repeat;*/
@@ -27,6 +26,8 @@ blockquote {
 }
 .module p {
   color:#fff;
+  text-align: left;
+
 }
 
 dd, dt {
@@ -88,7 +89,7 @@ li {
 }
 ol > li:before, ul > li:before {
   padding-right: 8px;
-  color: #e6db74;
+  color: #D27492;
 }
 ol > li {
   counter-increment: item;
@@ -102,8 +103,13 @@ ul > li:before {
 ul.unstyled > li:before {
   padding-right: 0px;
   content: none;
+  text-transform: uppercase;;
 }
 
+li h4 {
+  display:inline-block;
+  color:#D27492;
+}
 ol, ul {
   list-style-image: none;
   list-style-position: inside;
@@ -123,9 +129,12 @@ p {
 }
 
 pre {
-  padding: 0px 3px 0px 3px;
-  background-color: #1f1f1f;
+  padding: 10px 10px 10px 10px;
+  background-color: #3C3C3C;
+  color:#90D1EE;
   line-height: 18px;
+  word-wrap: break-word;
+
 }
 
 table {
@@ -168,11 +177,15 @@ a {
 a:hover {
   color: #D6CA80;
 }
+.item-body a {
+  color: #90D1EE;
+  text-decoration: underline;
+}
 
 code {
   padding: 0px 3px 0px 3px;
-  background-color: #1f1f1f;
-  color: #a6a6a6;
+  background-color: #3C3C3C;
+  color: #90D1EE;
   line-height: 18px;
   white-space: pre;
 }
@@ -185,6 +198,9 @@ table code {
   background-color: #1a1a1a;
 }
 
+img {
+  border: solid #c4bdbd 1px;
+}
 a > img {
   vertical-align: text-bottom;
   padding: 5px;
@@ -202,7 +218,7 @@ a > img {
   bottom: 0px;
   left: 0px;
   padding: 0px 18px 0px 18px;
-  width: 200px;
+  width: 150px;
 }
 
 #header {
@@ -272,6 +288,12 @@ a > img {
   margin-top: 18px;
   font-style: italic;
 }
+.module a{
+    text-transform: lowercase;
+}
+.unstyled a{
+  text-transform: uppercase;
+}
 
 .module-nav {
   font-family: "Open Sans", Arial, serif;
@@ -294,6 +316,7 @@ a > img {
   float: left;
   font-weight: bold;
   font-size: 18px;
+  text-transform: lowercase;
 }
 #breadcrumbs > li:before {
   padding-right: 0px;
