@@ -1,0 +1,142 @@
+body, html {
+  height:100%;
+  margin:0 auto;
+  padding:0;
+}
+nav {
+  background-color:#C7BE7D;
+  padding:15px;
+  width:100%;
+  text-transform:lowercase;
+}
+
+nav a{
+  width:75px;
+  height:50px;
+  color:#fff;
+  font-family:'segoe ui light'; 
+  text-decoration:none;
+  text-align: center;
+  font-size:20px;
+  border:2px #fff solid;
+  margin-left:5px;
+  display:inline-block;
+  vertical-align: middle;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+nav ul {
+  margin:0 auto;
+  list-style:none;
+  vertical-align: middle;
+
+}
+nav li{
+  display:inline-block;
+  vertical-align: middle;
+}
+
+nav ul {
+  margin:0 auto;
+  list-style:none;
+  line-height:50px;
+}
+nav a:nth-child(1) {
+   margin-left:0px;
+}
+#shape-container {
+  margin:90px auto;
+  padding:0;
+  width:470px;
+  
+}
+body {
+  background:#f4f4f4;
+}
+.sqr {
+  width:100px;
+  height:100px;
+  padding:0px;
+  margin:21px 18px;
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  display:inline-block;
+}
+#sqrs a {
+  margin:0 auto;
+  padding:0;
+}
+.sqr-txt {
+  color:#fff;
+  font-size:18px;
+  font-family: "Open Sans", sans-serif;
+  display: table-cell;
+  height: 100px;
+  text-align:center;
+  vertical-align: middle;
+  width: 100px;
+  text-decoration:none;
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+}
+
+#sqr-1-1 {
+  background-color:#fbaf40;
+}
+#sqr-1-2 {
+  background-color:#fcd546;
+}
+#sqr-1-3 {
+  background-color:#f54653;
+}
+#sqr-1-4 {
+  background-color:#69cdd7;
+}
+#sqr-2-1 {
+  background-color:#69AFBD;
+}
+#sqr-2-2 {
+  background-color:#B46280;
+}
+#sqr-2-3 {
+  background-color:#fbaf40;
+}
+#sqr-3-1 {
+  background-color:#FF4E50;
+}
+#sqr-3-2 {
+  background-color:#fcd546;
+}
+#sqr-4-1 {
+  background-color:#B46280;
+}
+#sqrs > li:nth-child(n+4) {
+  margin-left:90px;
+  margin-top:-52px;
+}
+#sqrs > li:nth-child(n+5) {
+  margin-left:19px;
+  margin-top:-52px;
+}
+#sqrs > li:nth-child(n+6) {
+  margin-left:161px;
+  margin-top:-52px;
+}
+#sqrs li {
+  display: inline-block;
+  margin:19px;
+  padding:0;
+}
+#sqsr ul {
+  margin:0 auto;
+  list-style:none;
+}
+a:hover {
+  color:#000;
+}

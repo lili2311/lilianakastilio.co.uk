@@ -7,6 +7,9 @@
 				#wrap {display:table;height:100%}
 			</style>
 		<![endif]-->
+		<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 		<title>Liliana Kastilio</title>
 	</head>
 	<script>
@@ -20,35 +23,35 @@
 	<link href="css/normalize.css" rel="stylesheet">
 	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 	<link href="css/style.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Rambla:400,400italic' rel='stylesheet' type='text/css'>
 	<meta name="description" content="Liliana Kastilio Website | Blog | Learning HTML and CSS | Web Development">
 	<meta name="keywords" content="Liliana Kastilio, web development, css, html, blog">
 	<body>
-		<div class="container">
-			<header>
-				<div class="header-container">
-					<h1>Lili Kastilio</h1>
-					<nav>
-						<ul>
-							<li><a href="#home" id="nav-home" class="ir">home</a></li>
-							<li><a href="blog/index.html">blog</a></li>
-							<li><a href="#work">work</a></li>
-							<li><a href="#contact">contact</a></li>
-						</ul>
-					</nav>
-				</div>
-				<div class="separator"></div>
-			</header>
-		<section class="error">
-			<p class="error">404: The page you are trying to reach wasn't found.</p>
-			<div class="push"></div>
-		</div>
-		</section>
-			<footer>
-			<div class="separator"></div>
-			<div class="footer-text">
-				<span>&copy; 2014 Liliana Kastilio</span>
+		<header>
+		  <h1><a href="http://www.lilianakastilio.co.uk"> Liliana Kastilio</a></h1>
+		  <nav>
+			  <ul>
+				  <li><a class="nav" href="#work" >work</a></li>
+					<li><a class="nav" href="#blog" >blog</a></li>
+					<li><a class="nav" href="#contact">contact</a></li>
+				</ul>
+		  </nav>
+		</header>
+		<div id="content">
+			<div id="container">
+				<section id="error">
+					<p>404 - Page Not Found =[</p>
+				</section>
 			</div>
-		</footer>
+			<footer>
+			  <div class="inner">
+			    <small>&#169; All design and content Liliana Kastilio 2013-
+			      <script>
+			      var theDate=new Date()
+			      document.write(theDate.getFullYear())
+			      </script>
+			    </small>
+			  </div>
+			</footer>
+		</div>
 	</body>
 </html>

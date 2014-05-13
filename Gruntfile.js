@@ -22,10 +22,20 @@ module.exports = function(grunt) {
         files: [
           {expand: true, cwd: 'src/', src: ['**'], dest: ''},
         ]
-      }
+      },
+      download: {
+        options: {
+          bucket: '<%= s3settings.bucket %>',
+        },
+        files: [
+          {dest: '/', cwd: 'backup/', action: 'download'},
+        ]
     }
-  });
+  }
+});
 
   grunt.registerTask('deploy', ['aws_s3:live']);
+  grunt.registerTask('download', ['aws_s3:download']);
+
 
 };
