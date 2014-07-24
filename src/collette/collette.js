@@ -1,5 +1,4 @@
-var colors = ["#13A4AE","#A3A948","#395B5E","#ffc300","#46a28d","#ff6633", "#46a28d","#B3DEA6","#EF4E4E","#FBFBFB","#F6F6F6","#2dbdba","#181818","#1abc9c","#2ecc71","#3498db","#9d5cb7","#34495e","#16a085","#27ae60","#2980b9","#8e44ad","#c0392b","#f1c40f","#e67e22","#e74c3c","#f39c12","d9534f","#6acaf4","#f66d25","#ff3c50"];
-
+var colors = ["#13A4AE","#A3A948","#89686a","#395B5E","#ffc300","#46a28d","#ff6633", "#46a28d","#B3DEA6","#EF4E4E","#FBFBFB","#F6F6F6","#2dbdba","#181818","#1abc9c","#2ecc71","#3498db","#21b8c3","#9d5cb7","#34495e","#16a085","#27ae60","#2980b9","#8e44ad","#c0392b","#f1c40f","#e67e22","#e74c3c","#f39c12","d9534f","#6acaf4","#f66d25","#ff3c50","#93E76E","#EB666E","#00e7b4","#d6d6d6","#01b1be","#f2918a","#84729c","#565656","#c1edf3","#f58065","#00979c","#e34c00","#68ad94","#00979C","#f1cc20","#6f5499","#feead5","#f36a5e","#5c6982","#e0e6e7","#77c7ac","#FF4351","#FF667A","#ED4694","#394e63","#DB49D8","#F668CA","#DCD4F9","#7B72E9","#1B9AF7","#55DAE1","#B6F9B2","#49E845","#A5DE37","#FFEB94","#FFE93B","#FEAE1B","#FE9949","#FD6631","#FC880F", "#50c3af"];
 function getContrast(hexcolor){
 	var r = parseInt(hexcolor.substr(0,2),16);
 	var g = parseInt(hexcolor.substr(2,2),16);
