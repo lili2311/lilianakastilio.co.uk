@@ -29,13 +29,10 @@ body, html {
 footer {
 	background-color:#4BAAB2;
   	height:2em;
-  	
-  	
  	width:100%;
  	text-align: center;   
  	bottom: 0;
     left: 0;
-    position: absolute;
     width: 100%;
 }
 .push {

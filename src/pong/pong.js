@@ -1,51 +1,47 @@
-var canvas, ctx, mouse_pos, mouse_pos_msg="Mouse:0,0", ball, radius=50, leftPaddle, rightPaddle, gutterWidth=30, skip=50, isPaused=false, score1=0, score2=0;
+var canvas, ctx, mouse_pos, mouse_pos_msg="Mouse:0,0", ball, radius=20, leftPaddle, rightPaddle, gutterWidth=3, skip=50, isPaused=false, score1=0, score2=0;
 var colors = [ '#9184e5', '#317874', '#6e783f', '#F38630', '#FA6900', '#FF4E50', '#453a1b' ];
-console.info('******************************Begin******************************');
+//console.info('******************************Begin******************************');
  
 init();
    
 function init() {
-  console.info('init()'); 
-		  var body = document.querySelector('body');
-		  canvas = document.createElement('canvas');
-  body.appendChild(canvas);
-  if(canvas.getContext && canvas.getContext('2d')) {
-    ctx = canvas.getContext('2d'); 	//context
-    canvas.width = innerWidth;
-		    canvas.height = innerHeight;
-		    canvas.style.position = 'absolute';
-		    canvas.style.top = 0;
-		    canvas.style.bottom = 0;
-		    canvas.style.left = 0;
-		    canvas.style.right = 0;
-		    canvas.style.zIndex = -1;
+  //console.info('init()'); 
+	
+  canvas = document.createElement('canvas');
+  
+ if(canvas.getContext && canvas.getContext("2d")) {
+    var e = document.getElementById("container");
+    e.appendChild(canvas);
+    ctx = canvas.getContext("2d");
+    canvas.height = 400;
+    canvas.width = 600;
         
     window.addEventListener('keydown', key_down, true);
     
     leftPaddle = {
       x: gutterWidth,
       y: 0,
-      w: 20,
-      h: 200,
+      w: 10,
+      h: 70,
       c: colors[Math.floor(Math.random()*colors.length)],
     };
     rightPaddle = {
-      x: window.innerWidth - gutterWidth - 20,
+      x: canvas.width - gutterWidth - 10,
       y: 0,
-      w: 20,
-      h: 200,
+      w: 10,
+      h: 70,
       c: colors[Math.floor(Math.random()*colors.length)],
     };
             
     ball = {
           r: radius,
-          x: window.innerWidth/2,
-          y: window.innerHeight/2,
+          x: canvas.width/2,
+          y: canvas.height/2,
           c: colors[Math.floor(Math.random()*colors.length)],
           m: 1,
           v: {
-            x: (Math.random()<.5?-1:1)*(Math.floor(Math.random()*7) + 10),
-            y: (Math.random()<.5?-1:1)*(Math.floor(Math.random()*4) + 6)
+            x: (Math.random()<.5?-1:1)*(Math.floor(Math.random()*3) + 4),
+            y: (Math.random()<.5?-1:1)*(Math.floor(Math.random()*2) + 3)
           }
         };
     
@@ -56,34 +52,34 @@ function init() {
     draw_paddle(rightPaddle);
     draw_line(); 
     
-		  }		
-		  else {
-        // text
-        var text = document.createElement("div");
-        text.innerHTML = "Unsupported browser";
-        text.setAttribute('class', 'text'); 
-        document.getElementById("container").appendChild(text);
-        // Browser
-        var browser = document.createElement("div");
-        browser.innerHTML = get_browser();
-        browser.setAttribute('class', 'browser-version'); 
-        document.getElementById("container").appendChild(browser);
-        // text
-        var text1 = document.createElement("div");
-        text1.innerHTML = "version";
-        text1.setAttribute('class', 'text'); 
-        document.getElementById("container").appendChild(text1);
-        // Version
-        var version = document.createElement("div");
-        version.innerHTML = get_browser_version();
-        version.setAttribute('class', 'browser-version'); 
-        document.getElementById("container").appendChild(version);
-        // text
-        var text3 = document.createElement("div");
-        text3.innerHTML = "please updgrade!";
-        text3.setAttribute('class', 'text'); 
-        document.getElementById("container").appendChild(text3);
-      }
+	}		
+  else {
+    // text
+    var text = document.createElement("div");
+    text.innerHTML = "Unsupported browser";
+    text.setAttribute('class', 'text'); 
+    document.getElementById("container").appendChild(text);
+    // Browser
+    var browser = document.createElement("div");
+    browser.innerHTML = get_browser();
+    browser.setAttribute('class', 'browser-version'); 
+    document.getElementById("container").appendChild(browser);
+    // text
+    var text1 = document.createElement("div");
+    text1.innerHTML = "version";
+    text1.setAttribute('class', 'text'); 
+    document.getElementById("container").appendChild(text1);
+    // Version
+    var version = document.createElement("div");
+    version.innerHTML = get_browser_version();
+    version.setAttribute('class', 'browser-version'); 
+    document.getElementById("container").appendChild(version);
+    // text
+    var text3 = document.createElement("div");
+    text3.innerHTML = "please updgrade!";
+    text3.setAttribute('class', 'text'); 
+    document.getElementById("container").appendChild(text3);
+  }
 		
 }
  
@@ -96,9 +92,9 @@ function draw_ball() {
 
 function draw_line() {
    ctx.beginPath();
-     ctx.moveTo(window.innerWidth/2, 60);
+     ctx.moveTo(canvas.width/2, 0);
      ctx.strokeStyle = '#3c3c3c';
-     ctx.lineTo(window.innerWidth/2,window.innerHeight);
+     ctx.lineTo(canvas.width/2,canvas.height);
      if (ctx.setLineDash)
       ctx.setLineDash([10,5]);
    ctx.stroke();
@@ -114,15 +110,11 @@ function draw_paddle(p) {
 
 function score()
 {
-  scoreText = score1 + ":" + score2;
-  ctx.beginPath();
-    ctx.rect(window.innerWidth/2-80, -1, 160, 60);
-    ctx.strokeStyle = '#3c3c3c';
-    ctx.stroke();
-    ctx.font = 'bold 30pt Open Sans';
-    ctx.fillStyle = '#FF4E50';
-  ctx.fillText(scoreText, (window.innerWidth - scoreText.length*20)/2, 35); 
+  scoreText = score1 + "-" + score2;
+  document.getElementById("score").innerHTML = scoreText;
+
 }
+
 
 function gameStart() {
   isPaused=true;
@@ -143,7 +135,7 @@ function key_down(e) {
 
   }
   // S KEY
-  if(e.keyCode == 83 && leftPaddle.y+leftPaddle.h <= canvas.height && !isPaused) {
+  if(e.keyCode == 83 && leftPaddle.y+leftPaddle.h + skip<= canvas.height && !isPaused) {
     leftPaddle.y += skip;
     //console.info('PRESSED S KEY');
   }
@@ -153,7 +145,7 @@ function key_down(e) {
     //console.info('PRESSED UP KEY');   
   }
   // DOWN KEY
-  if(e.keyCode == 40 && rightPaddle.y + rightPaddle.h <= canvas.height && !isPaused) {
+  if(e.keyCode == 40 && rightPaddle.y + rightPaddle.h +skip<= canvas.height && !isPaused) {
      //console.info('PRESSED DOWN KEY');
      rightPaddle.y += skip;
 
@@ -205,17 +197,7 @@ function update() {
       ball.y += ball.v.y;
     }
     else {
-      ctx.beginPath();
-        ctx.rect(window.innerWidth/2-150, window.innerHeight/2-100, 300, 200);
-        ctx.fillStyle = '#FF4E50';
-      ctx.fill();  
-      ctx.strokeStyle = '#3c3c3c';
-      ctx.stroke();
-      ctx.font = 'bold 20pt Open Sans';
-      ctx.fillStyle = '#f6f6f6';
-      ctx.fillText("Press space to play", window.innerWidth/2-110, window.innerHeight/2-20);
-      ctx.fillText("Controls: W, S, \u2191, \u2193", window.innerWidth/2-110, window.innerHeight/2+40);
-
+        draw_ball();
     }
 
 }
@@ -225,8 +207,8 @@ function reset() {
 }
 
 function reset_ball() { 
-  ball.x = window.innerWidth/2;
-  ball.y = window.innerHeight/2;
+  ball.x = canvas.width/2;
+  ball.y = canvas.height/2;
   ball.c = colors[Math.floor(Math.random()*colors.length)];
   if(ball.v.x < 150)
     ball.v.x += 1;

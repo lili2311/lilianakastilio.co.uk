@@ -40,14 +40,14 @@ if(canvas.getContext && canvas.getContext('2d')) {
    canvas.addEventListener('mousemove', function(evt) {
         mousePos = getMousePos(canvas, evt);
         message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-        writeMessage(canvas, message);
+        //writeMessage(canvas, message);
          isMouseMove = true;
       }, false);
     canvas.addEventListener('mousedown', function(evt) {
         isMouseDown = true;
         mousePos = getMousePos(canvas, evt);
         message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-        writeMessage(canvas, message);
+        //writeMessage(canvas, message);
 
       }, false);
      
@@ -64,8 +64,7 @@ function draw_umbrella() {
     context.strokeStyle ="#f6f6f6";
     context.lineWidth = umbrella.handle.width;
     context.stroke(); 
-    //context.fillStyle="#f6f6f6";
-    //context.fill();
+
   context.closePath();
   
   //wavy bottom of umbrella
@@ -95,7 +94,7 @@ function draw_umbrella() {
     context.arc(umbrella.top.x - umbrella.top.r/6, umbrella.top.y + umbrella.handle.height, umbrella.top.r/6, umbrella.top.eAngle, umbrella.top.sAngle, false);
 
     context.moveTo(umbrella.top.x, umbrella.top.y);
-    context.lineTo(umbrella.top.x, umbrella.top.y +     umbrella.handle.height);
+    context.lineTo(umbrella.top.x, umbrella.top.y + umbrella.handle.height);
   
     context.strokeStyle ="#f6f6f6";
     context.lineWidth = umbrella.handle.width;
@@ -178,7 +177,7 @@ function draw_particles() {
   }
 }
 function update() {
-  writeMessage(canvas, message);
+  //writeMessage(canvas, message);
   update_particles();
   draw_particles();
   reset_particles();

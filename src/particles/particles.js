@@ -1,15 +1,27 @@
-// declare vars
+
+// // declare vars
 var ps = [];
 var MAX_NUM = 500;
 var colors = [ '#69D2E7', '#A7DBD8', '#E0E4CC', '#F38630', '#FA6900', '#FF4E50', '#F9D423' ];
-var FPS = 60;
 
 var c=document.getElementById("myCanvas");
 var ctx=c.getContext("2d");
 
-spawn();
-
-
+window.requestAnimFrame = window.requestAnimationFrame ||
+                          window.webkitRequestAnimationFrame ||
+                          window.mozRequestAnimationFrame ||
+                          window.oRequestAnimationFrame ||
+                          window.msRequestAnimationFrame ||
+                          function(e){
+                            window.setTimeout(e,1e3)
+                          };
+window.onload=function(){
+  c.width=c.width;
+  c.height=c.height;
+  spawn();
+  draw();
+  update();
+}
 
 //create the particles
 function spawn() {
@@ -23,11 +35,20 @@ function spawn() {
 }
 
 function update() {
+    reset();
+
+    c.width = window.innerWidth;
+    c.height = window.innerHeight;
     for(var i=0; i<ps.length; i++) {
-        ps[i].y += 1;
+        ps[i].y += 1 ;
         ps[i].x += -1 + (Math.random() * 3);
         //ps[i].r = Math.random()*5;
     }
+
+    draw();
+
+    window.setTimeout(requestAnimFrame(update),1e3);
+
 }
 
 function reset() {
@@ -48,10 +69,6 @@ function reset() {
   
 
 function draw() {
-
-  c.width = window.innerWidth;
-  c.height = window.innerHeight;
-
   for(var i=0; i<ps.length; i++) {
     ctx.beginPath();
 		ctx.arc( ps[i].x, ps[i].y, ps[i].r, 0, 6);
@@ -60,8 +77,8 @@ function draw() {
   }
 }
 
-setInterval(function() {
-  update();
-  draw();
-  reset();
-}, 30);
+// setInterval(function() {
+//   update();
+//   draw();
+//   reset();
+// }, 30);
