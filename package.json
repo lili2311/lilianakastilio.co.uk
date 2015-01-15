@@ -1,7 +1,7 @@
 {
-  "name": "lk",
+  "name": "thatdeliverychap",
   "version": "0.0.1",
-  "description": "Liliana Kastilio",
+  "description": "That Delivery Chap Website",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,3 +13,4 @@
     "grunt-aws-s3": "~0.8.1"
   }
 }
+

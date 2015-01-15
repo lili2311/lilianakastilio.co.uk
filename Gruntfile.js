@@ -43,37 +43,22 @@ grunt.initConfig({
   },
   cssmin: {
     combine: {
-      files: {
-        'src/css/style6.css': ['deploy/css/style6.css'] // FIND OUT HOW TO AUTOMATE
-      }
+      files: [
+        {expand: true, cwd: 'src', src: ['**/*.css'], dest: 'deploy/'},
+      ]
    }
   },
   htmlmin: {                                     // Task
     dist: {                                      // Target
       options: {                                 // Target options
         removeComments: true,
-        collapseWhitespace: true
+        collapseWhitespace: true,
       },
-      files: {                                   // Dictionary of files
-        'deploy/index.html': 'src/index.html',     // 'destination': 'source'
-        'deploy/404.html': 'src/404.html',     // 'destination': 'source'
-        'deploy/old-index.html': 'src/old-index.html',     // 'destination': 'source'
-        'deploy/blog/index.html': 'src/blog/index.html',     // 'destination': 'source'
-        'deploy/blog/2014/02/18/Meow/index.html': 'src/blog/2014/02/18/Meow/index.html',     // 'destination': 'source'
-        'deploy/blog/2013/01/16/Hello-World/index.html': 'src/blog/2013/01/16/Hello-World/index.html',     // 'destination': 'source'
-        'deploy/blog/2011/12/04/first-post/index.html': 'src/blog/2011/12/04/first-post/index.html',
-        'deploy/blog/2011/12/04/It-works/index.html': 'src/blog/2011/12/04/It-works/index.html',
-        'deploy/diamongrid/index.html': 'src/diamongrid/index.html',     // 'destination': 'source'
-        'deploy/onscrollheader/on-scroll-animated-fixed-header.html.html': 'src/onscrollheader/on-scroll-animated-fixed-header.html.html',     // 'destination': 'source'
-        'deploy/meow/index.html': 'src/meow/index.html',     // 'destination': 'source'
-        'deploy/stickyheader/stickyheader.html': 'src/stickyheader/stickyheader.html',     // 'destination': 'source'
-        'deploy/responsive/responsive.html': 'src/responsive/responsive.html',     // 'destination': 'source'
-        'deploy/todolist/to-do-list.html': 'src/todolist/to-do-list.html',     // 'destination': 'source'
-        'deploy/simplyfreewebdevelopment/simplyfreewebdevelopment.html': 'src/simplyfreewebdevelopment/simplyfreewebdevelopment.html',     // 'destination': 'source'
-
-      }
+      files: [                     
+        {expand: true, cwd: 'src', src: ['**/*.html'], dest: 'deploy/'},
+      ]
     }
-  },
+  }
 });
 
   grunt.registerTask('deploy', ['aws_s3:live']);
