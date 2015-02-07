@@ -61,7 +61,7 @@ grunt.initConfig({
   }
 });
 
-  grunt.registerTask('deploy', ['aws_s3:live']);
+  grunt.registerTask('deploy', ['default','aws_s3:live']);
   grunt.registerTask('download', ['aws_s3:download']);
   grunt.registerTask('default', ['cssmin', 'htmlmin']); // not working =/
 
