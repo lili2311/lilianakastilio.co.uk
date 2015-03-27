@@ -11,6 +11,7 @@ grunt.loadNpmTasks('grunt-contrib-htmlmin');
 grunt.loadNpmTasks('grunt-contrib-cssmin');
 grunt.loadNpmTasks('grunt-contrib-imagemin');
 
+
 grunt.initConfig({
   pkg: grunt.file.readJSON('package.json'),
   s3settings: grunt.file.readJSON('s3settings.json'),
