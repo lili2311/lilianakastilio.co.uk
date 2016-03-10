@@ -30,7 +30,7 @@ grunt.initConfig({
         differential: true // Only uploads the files that have changed
       },
       files: [
-        {expand: true, cwd: 'deploy/', src: ['**'], dest: ''},
+        {expand: true, cwd: 'deploy/', src: ['**'], dest: '',CacheControl: 'max-age=31536000, public'},
       ]
     },
     download: {
