@@ -43,6 +43,7 @@ if(canvas.getContext && canvas.getContext('2d')) {
         //writeMessage(canvas, message);
          isMouseMove = true;
       }, false);
+   
     canvas.addEventListener('mousedown', function(evt) {
         isMouseDown = true;
         mousePos = getMousePos(canvas, evt);

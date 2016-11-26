@@ -116,6 +116,7 @@ function get_mouse_pos(e) {
     y: mouseY
   };
 }
+
 function update() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
