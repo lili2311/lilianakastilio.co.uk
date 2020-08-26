@@ -35,7 +35,7 @@ h2 {
 }
 
 .workshop {
-    list-style:none; 
+    list-style:none;
     margin-top: 3em;
 }
 .workshop li p{
@@ -101,9 +101,6 @@ nav li a {
     color: #f3f3f3;
     font-size: 1em
 }
-li p {
-    font-style: italic;
-}
 footer {
     display: block;
     width: 100%;
@@ -131,12 +128,13 @@ nav a:hover {
 #contact ul {
     margin-top: .5em;
     margin-bottom: 6em;
-    display: block;
+    display: flex;
     text-align: center
 }
 #contact li {
     display: inline-block;
     padding: .2em 0;
+    flex: 1 0 auto;
 }
 #contact li a {
     background-color: #3c3c3c;
