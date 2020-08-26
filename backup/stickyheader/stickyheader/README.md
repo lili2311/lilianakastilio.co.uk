@@ -1,4 +1,0 @@
-stickyheader
-============
-
-Sticky header
