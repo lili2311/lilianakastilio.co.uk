@@ -9,7 +9,7 @@
   "author": "Liliana Kastilio",
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "grunt": "~0.4.1",
+    "grunt": "~1.3.0",
     "grunt-aws-s3": "~0.8.1",
     "grunt-prettify": "~0.4.0"
   },
